@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Decrypts the Veracrypt-encrypted microSD card using PIM and password and mounts it in /media/micro_vera
+
+sudo veracrypt -p '<volume_password>' --pim=<PIM_num> /dev/sdxx /media/<mount_dir>;
+
+RESULT=$?
+
+ if [ $RESULT -eq 0 ]; then
+	exit 0
+ else
+	sudo veracrypt -p '<volume_password>' --pim=<PIM_num> /dev/sdxx /media/<mount_dir>;
+	
+	RESULT2=$?
+
+	if [ $RESULT2 -eq 0 ]; then
+		exit 0
+	else
+		sudo veracrypt -p '<volume_password>' --pim=<PIM_num> /dev/sdxx /media/<mount_dir>;
+		exit 0;
+	fi
+ fi
