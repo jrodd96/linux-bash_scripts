@@ -4,12 +4,12 @@
 
 global_ip() {
 
-	ssh -p 1996 jrodd96@70.161.172.222
+	ssh -p 1996 hostname@<global_ip>
 }
 
 local_ip() {
 
-	ssh -p 1996 jrodd96@192.168.0.3
+	ssh -p 1996 hostname@<local_ip>
 }
 
 menu() {
